@@ -12,11 +12,22 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
   padding: 0.2em 0;
 }
 
+html{
+  overflow: hidden;
+}
+
 /* Space out content a bit */
 body {
-  padding: 0;
+  padding: 0 100px 0 0;
+  @include box-sizing(content-box);
+  width: 100%;
   background: url(/images/bg.png);
   background-size: cover;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
 /* Everything gets side spacing for mobile first views */
@@ -37,6 +48,9 @@ body {
 /* Custom page header */
 .header {
   // border-bottom: 1px solid #e5e5e5;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   /* Masthead */
   h1 {
@@ -55,6 +69,18 @@ body {
     line-height: 57px;
     @include box-shadow(rgba(black,0.5) 0 20px 20px);
   }
+
+  .navbar-nav {
+    li {
+      padding: 0 40px;
+      font-size: 32px;
+
+      a,a:hover,a:active,a:focus,a:visited {
+        background: none;
+        @include burnt;
+      }
+    }
+  }
 }
 
 /* Main view */
@@ -62,7 +88,7 @@ body {
   @include box-sizing(border-box);
   margin: 0 auto;
   width: 1024px;
-  padding: 20px 50px 100px;
+  padding: 324px 50px 100px;
   background: url(/images/parchment.png);
 }
 
@@ -115,7 +141,6 @@ body {
     display: table;
     table-layout: fixed;
     float:none;
-    font-size: 24px;
     text-transform: uppercase;
   }
 }
