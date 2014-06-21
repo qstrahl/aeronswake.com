@@ -33,14 +33,6 @@ body {
   color: #000;
 }
 
-/* Everything gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
 .container {
   @include box-sizing(border-box);
   margin: 0;
@@ -86,6 +78,15 @@ body {
   }
 }
 
+/* Justify navbar */
+.navbar-nav{
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+  float:none;
+  text-transform: uppercase;
+}
+
 /* Main view */
 [ng-view] {
   @include box-sizing(border-box);
@@ -124,27 +125,5 @@ body {
 
   p + h4 {
     margin-top: 28px;
-  }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Justify navbar */
-  .navbar-nav{
-    margin: 0 auto;
-    display: table;
-    table-layout: fixed;
-    float:none;
-    text-transform: uppercase;
   }
 }
