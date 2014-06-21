@@ -29,6 +29,8 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
+  font-family: serif;
+  color: #000;
 }
 
 /* Everything gets side spacing for mobile first views */
@@ -91,6 +93,7 @@ body {
   width: 1024px;
   padding: 324px 50px 100px;
   background: url(/images/parchment.png);
+  font-size: 16px;
 }
 
 /* Custom page footer */
