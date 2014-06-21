@@ -1,6 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+@import "burnt";
 // endbower
 
 .browsehappy {
@@ -12,11 +13,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 
 /* Space out content a bit */
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 0;
+  background: url(/images/bg.png);
+  background-size: cover;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
+/* Everything gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
@@ -24,39 +26,65 @@ body {
   padding-right: 15px;
 }
 
+.container {
+  @include box-sizing(border-box);
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+}
+
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
+  // border-bottom: 1px solid #e5e5e5;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  /* Masthead */
+  h1 {
+    @include box-sizing(border-box);
+    background: url(/images/banner-top-1024x195.png);
+    height: 195px;
+    margin: 52px 0 0 0;
+    text-align: center;
   }
+
+  /* Nav bar background*/
+  .nav-wrapper {
+    position: relative;
+    background: url(/images/banner-300x57.png);
+    height: 57px;
+    line-height: 57px;
+    @include box-shadow(rgba(black,0.5) 0 20px 20px);
+  }
+}
+
+/* Main view */
+[ng-view] {
+  @include box-sizing(border-box);
+  margin: 0 auto;
+  width: 1024px;
+  padding: 20px 50px 100px;
+  background: url(/images/parchment.png);
 }
 
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
+  @include box-sizing(border-box);
+  background: url(/images/banner-300x57.png);
+  height: 57px;
+  line-height: 57px;
+  font-size: 24px;
+  font-weight: bold;
+  @include box-shadow(rgba(black,0.5) 0 20px 20px);
+  position: absolute;
+  margin-top: -100px;
+  width: 100%;
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  @include burnt;
+}
 
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
+.crooked {
+  @include rotate(-1deg);
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Supporting marketing content */
@@ -71,7 +99,6 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
   }
 
   /* Remove the padding we set earlier */
@@ -81,12 +108,13 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  /* Justify navbar */
+  .navbar-nav{
+    margin: 0 auto;
+    display: table;
+    table-layout: fixed;
+    float:none;
+    font-size: 24px;
+    text-transform: uppercase;
   }
 }

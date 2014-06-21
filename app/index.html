@@ -22,18 +22,20 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">aeronswakecom</h3>
+        <h1><a href="/"><img src="/images/logo-1024x195.png" alt="Aeron's Wake"></a></h1>
+        <div class="nav-wrapper">
+          <ul class="nav navbar-nav">
+            <li class="active"><a ng-href="#">Home</a></li>
+            <li><a ng-href="#/about">About</a></li>
+            <li><a ng-href="#">Contact</a></li>
+          </ul>
+        </div>
       </div>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p class="crooked"><span class="glyphicon glyphicon-copyright-mark"></span> Aeron's Wake 2014</p>
       </div>
     </div>
 
