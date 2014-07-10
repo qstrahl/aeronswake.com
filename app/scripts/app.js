@@ -27,10 +27,6 @@ angular
         templateUrl: 'views/music.html',
         controller: 'MusicCtrl'
       })
-      .when('/contact', {
-        templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
