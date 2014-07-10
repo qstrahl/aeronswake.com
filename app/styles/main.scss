@@ -110,6 +110,12 @@ body {
   }
 }
 
+div.album {
+  @include box-sizing(border-box);
+  width: 50%;
+  padding: 20px;
+}
+
 figure.cover {
   @include box-shadow(rgba(black,0.4) 0 5px 15px 5px);
   position: relative;
