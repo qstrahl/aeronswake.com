@@ -106,6 +106,31 @@ body {
   }
 }
 
+figure.cover {
+  @include box-shadow(rgba(black,0.4) 0 5px 15px 5px);
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    color: rgba(white,0.8);
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-style: italic;
+
+    a {
+      &, &:hover, &:visited, &:focus {
+        color: rgba(white,0.8);
+        border-bottom: rgba(white,0.8) 1px dotted;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 /* Custom page footer */
 .footer {
   @include box-sizing(border-box);
