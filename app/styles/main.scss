@@ -155,6 +155,10 @@ figure.cover {
   width: 100%;
   text-align: center;
   @include burnt;
+
+  a {
+    color: #112;
+  }
 }
 
 .crooked {
