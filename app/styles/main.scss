@@ -92,6 +92,7 @@ body {
   @include box-sizing(border-box);
   margin: 0 auto;
   width: 1024px;
+  min-height: 1080px;
   padding: 324px 50px 100px;
   background: url(/images/parchment.png);
   font-size: 16px;
