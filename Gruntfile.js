@@ -385,16 +385,6 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    },
-
-    // Deploy to EC2 with rsync
-    rsync: {
-      options: {
-        args: ['--verbose'],
-        recursive: true,
-        src: 'dist',
-        dest: 'aeronswake.com/'
-      }
     }
   });
 
