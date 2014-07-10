@@ -96,6 +96,14 @@ body {
   padding: 324px 50px 100px;
   background: url(/images/parchment.png);
   font-size: 16px;
+  line-height: 1.8em;
+  color: #000;
+  text-shadow: rgba(#311, 0.3) 0 1px 0.5px;
+  text-align: justify;
+
+  p {
+    margin: 2em 0;
+  }
 }
 
 /* Custom page footer */
