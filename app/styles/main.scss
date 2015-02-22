@@ -5,6 +5,28 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+@mixin pointer-events($type: none) {
+  $type: unquote($type);
+  @include experimental(pointer-events, $type,
+    -moz, -webkit, not -o, not -ms, -khtml, official
+  );
+}
+
+@font-face {
+  font-family: navfont;
+  src: url('/fonts/PR Viking.ttf');
+}
+
+@font-face {
+  font-family: bodyfont;
+  src: url('/fonts/althea.ttf');
+}
+
+@font-face {
+  font-family: messyfont;
+  src: url('/fonts/oldstyle.ttf');
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -29,8 +51,8 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  font-family: serif;
   color: #000;
+  font-family: messyfont;
 }
 
 .container {
@@ -42,36 +64,56 @@ body {
 
 /* Custom page header */
 .header {
-  // border-bottom: 1px solid #e5e5e5;
+  @include box-shadow(rgba(#000,0.66) 0 0 40px 20px);
   position: fixed;
   width: 100%;
   z-index: 10;
+  margin-top: 20px;
 
   /* Masthead */
   h1 {
     @include box-sizing(border-box);
     background: url(/images/banner-top-1024x195.png);
-    height: 195px;
-    margin: 20px 0 0 0;
+    background-size: auto 3em;
+    background-repeat: repeat-x;
+    height: 3em;
+    margin: 0;
     text-align: center;
+
+    img {
+      position: relative;
+      top: -0.33em;
+      z-index: 2;
+      height: 4em;
+      width: auto;
+      @include pointer-events(none);
+    }
   }
 
   /* Nav bar background*/
   .nav-wrapper {
     position: relative;
     background: url(/images/banner-300x57.png);
-    height: 57px;
-    line-height: 57px;
-    @include box-shadow(rgba(black,0.5) 0 20px 20px);
+    background-size: auto 3.5em;
+    background-repeat: repeat-x;
+    height: 3.5em;
+    line-height: 3.5em;
+    font-family: navfont;
   }
 
   .navbar-nav {
+    height: 100%;
+
     li {
-      padding: 0 40px;
-      font-size: 32px;
+      padding: 0 1em;
+      height: 100%;
+      line-height: (3.5em / 2.5);
+      font-size: 2.5em;
 
       a,a:hover,a:active,a:focus,a:visited {
         background: none;
+        display: inline-block;
+        padding: 0;
         @include burnt;
       }
     }
@@ -84,19 +126,20 @@ body {
   display: table;
   table-layout: fixed;
   float:none;
-  text-transform: uppercase;
 }
 
 /* Main view */
 [ng-view] {
   @include box-sizing(border-box);
+  @include filter(sepia(25%));
   margin: 0 auto;
   width: 1024px;
   min-height: 1080px;
-  padding: 324px 50px 100px;
+  padding: 220px 50px 100px;
   background: url(/images/parchment.png);
-  font-size: 16px;
-  line-height: 1.8em;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
   color: #000;
   text-shadow: rgba(#311, 0.3) 0 1px 0.5px;
   text-align: justify;
@@ -110,10 +153,106 @@ body {
   }
 }
 
+[ng-view="main"] {
+  background: url(/images/picture.png) no-repeat bottom center, url(/images/parchment.png);
+
+  div.left {
+    @include opacity(0.7);
+    float: left;
+    width: 400px;
+    line-height: 1.2em;
+    font-size: 1.9em;
+    font-family: messyfont;
+    text-align: left;
+
+    p {
+      margin: 1.3em 0 0;
+      padding: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  iframe {
+    @include opacity(0.7);
+    @include box-shadow(#000 0 0 5px);
+    width: 500px;
+    height: 120px;
+    border: none;
+    float: right;
+  }
+}
+
+.links {
+  margin-top: 100px;
+  font-family: messyfont;
+  float: right;
+  width: 500px;
+  text-align: right;
+
+  a {
+    transition: 200ms linear all;
+    @include opacity(0.4);
+    @include filter(sepia(100%));
+    margin: -1em 5px 0;
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    font-size: 3em;
+
+    &:hover {
+      @include opacity(0.7);
+      @include filter(sepia(0));
+    }
+
+    img {
+      height: 2em;
+      width: 2em;
+    }
+  }
+}
+
 div.album {
   @include box-sizing(border-box);
-  width: 50%;
+  @include display-flex;
+  @include flex-flow(row wrap);
+  width: 90%;
   padding: 20px;
+  background: rgba(#fff, 0.08);
+  margin: 0 auto;
+
+  h3 {
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    margin: 0;
+    @include flex-basis(70%);
+  }
+
+  hr {
+    @include flex-basis(100%);
+    border: none;
+    border-bottom: #000 1px solid;
+    margin: 0 0 15px 0;
+  }
+
+  & > a {
+    @include flex-basis(30%);
+    text-align: right;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+    @include box-shadow(rgba(#000, 0.7) 0 0 7px);
+  }
+
+  div {
+    margin-left: 15px;
+    @include flex-grow(1);
+  }
 }
 
 figure.cover {

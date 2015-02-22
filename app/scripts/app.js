@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
       .when('/music', {
         templateUrl: 'views/music.html',
         controller: 'MusicCtrl'
@@ -30,4 +34,11 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function ($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function (event, route) {
+      $rootScope.$evalAsync(function () {
+        angular.element('[ng-view]').attr('ng-view', route.loadedTemplateUrl.replace(/views\/(.+)\.html/i, '$1'));
+      });
+    });
   });
