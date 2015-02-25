@@ -13,18 +13,27 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 }
 
 @font-face {
-  font-family: navfont;
-  src: url('/fonts/PR Viking.ttf');
+  font-family: 'oldstyle_1hplhs';
+  src: url('/fonts/oldstyle-webfont.eot');
+  src: url('/fonts/oldstyle-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/oldstyle-webfont.woff2') format('woff2'),
+    url('/fonts/oldstyle-webfont.woff') format('woff'),
+    url('/fonts/oldstyle-webfont.ttf') format('truetype'),
+    url('/fonts/oldstyle-webfont.svg#oldstyle_1hplhs') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: bodyfont;
-  src: url('/fonts/althea.ttf');
-}
-
-@font-face {
-  font-family: messyfont;
-  src: url('/fonts/oldstyle.ttf');
+  font-family: 'pr_vikingregular';
+  src: url('/fonts/PR Viking-webfont.eot');
+  src: url('/fonts/PR Viking-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/PR Viking-webfont.woff2') format('woff2'),
+    url('/fonts/PR Viking-webfont.woff') format('woff'),
+    url('/fonts/PR Viking-webfont.ttf') format('truetype'),
+    url('/fonts/PR Viking-webfont.svg#pr_vikingregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .browsehappy {
@@ -52,7 +61,7 @@ body {
   top: 0;
   bottom: 0;
   color: #000;
-  font-family: messyfont;
+  font-family: 'oldstyle_1hplhs';
 }
 
 .container {
@@ -99,7 +108,7 @@ body {
     background-repeat: repeat-x;
     height: 3.5em;
     line-height: 3.5em;
-    font-family: navfont;
+    font-family: 'pr_vikingregular';
   }
 
   .navbar-nav {
@@ -165,7 +174,7 @@ body {
     width: 400px;
     line-height: 1.2em;
     font-size: 1.9em;
-    font-family: messyfont;
+    font-family: 'oldstyle_1hplhs';
     text-align: left;
 
     p {
@@ -190,7 +199,7 @@ body {
 
 .links {
   margin-top: 100px;
-  font-family: messyfont;
+  font-family: 'oldstyle_1hplhs';
   float: right;
   width: 500px;
   text-align: right;
